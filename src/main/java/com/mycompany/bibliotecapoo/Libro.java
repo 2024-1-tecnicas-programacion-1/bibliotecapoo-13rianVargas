@@ -7,7 +7,7 @@ public class Libro {
     private String autor;
     private int anoPublicacion;
     private String genero;
-    boolean leido;
+    private boolean leido;
 
     Libro (String titulo, String autor, int anoPublicacion, String genero){
         this.titulo = titulo;
@@ -29,4 +29,24 @@ public class Libro {
         return (LocalDate.now().getYear() - anoPublicacion > 50);
     }//cierra esAntiguo
     
+    public String getTitulo(){//Complejidad Temporal: Tiempo constante O(1)
+        return titulo;
+    }//cierra getTitulo
+
+    public String getAutor(){//Complejidad Temporal: Tiempo constante O(1)
+        return autor;
+    }//cierra getAutor
+
+    public int getAnoPublicacion(){//Complejidad Temporal: Tiempo constante O(1)
+        return anoPublicacion;
+    }//cierra getAnoPublicacion
+
+    public String getGenero(){//Complejidad Temporal: Tiempo constante O(1)
+        return genero;
+    }//cierra getGenero
+
+    public boolean getLeido(){//Complejidad Temporal: Tiempo constante O(1)
+        return leido;
+    }//cierra getLeido
+
 }//cierra class
