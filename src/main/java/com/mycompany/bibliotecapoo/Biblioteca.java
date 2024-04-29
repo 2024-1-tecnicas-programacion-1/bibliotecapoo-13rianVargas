@@ -13,21 +13,27 @@ public class Biblioteca {
         libros.add(nuevoLibro);
     }//cierra registrarLibro
 
-    public void buscarLibro(String palabraBusqueda){
+    public Libro buscarLibro(String palabraBusqueda){
         for (Libro libro : libros) {
-            if(libros.contains(palabraBusqueda)){
-                mostrarLibros();
-            }else{
-                System.out.println("No existe el libro en la Biblioteca.");
+            if(libro.getTitulo().equals(palabraBusqueda) || libro.getAutor().equals(palabraBusqueda) || libro.getGenero().equals(palabraBusqueda) || String.valueOf(libro.getAnoPublicacion()).equals(palabraBusqueda)){
+                return libro;
             }//cierra if
         }//cierra for
+        return null;
     }//cierra buscarLibros
 
     public void mostrarLibros(){
-        
+        for (Libro libro : libros) {
+            System.out.println(libro);
+        }//cierra for
     }//cierra mostrarLibros
 
     public void mostrarLibrosNoLeidos(){
-
+        for (Libro libro : libros) {
+            if(Boolean.valueOf(libro.getLeido()).equals(false)){
+                System.out.println(libro);
+            }//cierra for
+        }//cierra for
     }//cierra mostrarLibrosNoLeidos
-}
+    
+}//cierra class
