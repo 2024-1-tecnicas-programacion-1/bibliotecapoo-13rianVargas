@@ -6,6 +6,43 @@ public class Principal {
     public static void main(String[] args) {//Complejidad Temporal: Tiempo constante O(1)
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Elige tu opción:");
+        System.out.println("(1) Ingresar libro");
+        System.out.println("(2) Mostrar todos los libros");
+        System.out.println("(3) Buscar libro");
+        System.out.println("(4) Mostrar libros leidos:");
+        System.out.println("(5) Mostrar libros no leidos:");
+
+        String menu = sc.nextLine();
+
+        switch (menu){
+            case "1":
+                Libro libro = new Libro(String title, String autor, int anio, String gender);
+                break;
+
+            case "2":
+                Biblioteca.mostrarLibros();
+                break;
+
+            case "3":
+                System.out.println("Ingrese su palabra de busqueda:");
+                String word = sc.nextLine();
+                Biblioteca.buscarLibro(word);
+                break;
+
+            case "4":
+                Biblioteca.mostrarLibros();
+                break;
+
+            case "5":
+                Biblioteca.mostrarLibrosNoLeidos();
+                break;
+
+            default:
+                System.out.println("No ingresó una opción.");
+                break;
+        }//cierra switch
+
         System.out.println("Ingrese el título:");
         String title = sc.nextLine();
         System.out.println("Ingrese el autor:");
@@ -14,24 +51,6 @@ public class Principal {
         String gender = sc.nextLine();
         System.out.println("Ingrese el año de publicación:");
         int anio = sc.nextInt();
-
-        Libro libro = new Libro(title, autor, anio, gender);
-
-        libro.marcarLeido();
-
-        System.out.println(libro.mostrarInformacion());
-
-        if (libro.leido == true){
-            System.out.println("Ya fue leido.");
-        }else{
-            System.out.println("No fue leido.");
-        }//cierra if
-    
-        if (libro.esAntiguo() == true){
-            System.out.println("El libro es antiguo.");
-        }else{
-            System.out.println("El libro no es antiguo.");
-        }//cierra if
 
         sc.close();
     }//cierra el main
